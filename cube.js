@@ -4,14 +4,14 @@ var	c = document.getElementById("mycanvas"),
 	height = c.height = window.innerHeight,
 	cube = {
 		vectors: [
-			new vector(100,100,0),
-			new vector(100,200,0),
-			new vector(200,200,0),
-			new vector(200,100,0),
+			new vector(-100,-100,100),
+			new vector(-100,100,100),
 			new vector(100,100,100),
-			new vector(100,200,100),
-			new vector(200,200,100),
-			new vector(200,100,100)
+			new vector(100,-100,100),
+			new vector(-100,-100,-100),
+			new vector(-100,100,-100),
+			new vector(100,100,-100),
+			new vector(100,-100,-100)
 		],
 		lines: [
 			new Array(2, 4, 5),
@@ -96,25 +96,25 @@ document.body.addEventListener("keydown", function(event){
 		case 37: //left
 			console.log("left");
 			cube.vectors.forEach(function(v){
-				v = rotateZ(-0.1, v);
+				v = rotateY(-0.1, v);
 			});
 			break;
 		case 39: //right
 			console.log("right");
 			cube.vectors.forEach(function(v){
-				v = rotateZ(0.1, v);
+				v = rotateY(0.1, v);
 			});
 			break;
 		case 38: //up
 			console.log("up");
 			cube.vectors.forEach(function(v){
-				v = rotateY(0.1, v);
+				v = rotateX(0.1, v);
 			});
 			break;
 		case 40: //down
 			console.log("down");
 			cube.vectors.forEach(function(v){
-				v = rotateY(-0.1, v);
+				v = rotateX(-0.1, v);
 			});
 			break;
 	}
